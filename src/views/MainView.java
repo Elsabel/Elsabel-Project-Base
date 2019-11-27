@@ -73,6 +73,7 @@ public class MainView extends javax.swing.JFrame {
         MenuReport = new javax.swing.JMenu();
         ReportRegion = new javax.swing.JMenuItem();
         ReportEmployee = new javax.swing.JMenuItem();
+        ReportDep = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -165,6 +166,14 @@ public class MainView extends javax.swing.JFrame {
         });
         MenuReport.add(ReportEmployee);
 
+        ReportDep.setText("Department");
+        ReportDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportDepActionPerformed(evt);
+            }
+        });
+        MenuReport.add(ReportDep);
+
         jMenuBar1.add(MenuReport);
 
         setJMenuBar(jMenuBar1);
@@ -232,13 +241,16 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_ReportRegionActionPerformed
 
     private void ReportEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportEmployeeActionPerformed
-        ReportView reportView = new ReportView("Employee");
+        ReportView reportView = new ReportView("Region_1");
         reportView.show();
         dskHR.add(reportView);
-//          EmployeeReport report=new EmployeeReport();
-//          report.show();
-//          dskHR.add(report);
     }//GEN-LAST:event_ReportEmployeeActionPerformed
+
+    private void ReportDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportDepActionPerformed
+        ReportView reportView=new ReportView("Departments");
+        reportView.show();
+        dskHR.add(reportView);
+    }//GEN-LAST:event_ReportDepActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +289,7 @@ public class MainView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuReport;
+    private javax.swing.JMenuItem ReportDep;
     private javax.swing.JMenuItem ReportEmployee;
     private javax.swing.JMenuItem ReportRegion;
     private javax.swing.JDesktopPane dskHR;

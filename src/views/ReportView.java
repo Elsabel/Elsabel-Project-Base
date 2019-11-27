@@ -25,6 +25,11 @@ import tools.Connections;
  * @author Elsa
  */
 public class ReportView extends javax.swing.JInternalFrame {
+    private Connection connection;
+    JasperReport Jasrep;
+    JasperPrint Jaspri;
+    Map param = new HashMap();
+    JasperDesign JasDes;
     /**
      * Creates new form ReportView
      */
@@ -57,11 +62,11 @@ public class ReportView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 756, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 517, Short.MAX_VALUE)
         );
 
         pack();
