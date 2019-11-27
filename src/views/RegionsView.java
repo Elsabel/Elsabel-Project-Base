@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Region;
+import tools.Settings;
 
 /**
  *
@@ -49,10 +50,10 @@ public class RegionsView extends javax.swing.JInternalFrame {
         txtName = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        lblId = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
         lbl3 = new javax.swing.JLabel();
         lbl4 = new javax.swing.JLabel();
+        LabelNotifID = new javax.swing.JLabel();
+        LabelNotifName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setClosable(true);
@@ -111,6 +112,9 @@ public class RegionsView extends javax.swing.JInternalFrame {
         jLabel2.setText("Name");
 
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNameKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNameKeyTyped(evt);
             }
@@ -145,11 +149,8 @@ public class RegionsView extends javax.swing.JInternalFrame {
                 .addGap(47, 47, 47)
                 .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRegionLayout.createSequentialGroup()
-                        .addGap(268, 268, 268)
-                        .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
+                        .addComponent(LabelNotifName)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlRegionLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAdd)
@@ -159,7 +160,10 @@ public class RegionsView extends javax.swing.JInternalFrame {
                     .addGroup(pnlRegionLayout.createSequentialGroup()
                         .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pnlRegionLayout.createSequentialGroup()
+                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(LabelNotifID))
                                 .addComponent(lbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -171,23 +175,23 @@ public class RegionsView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LabelNotifID)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl3)
                 .addGap(4, 4, 4)
                 .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(lbl4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblName)
-                    .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnAdd)
-                        .addComponent(btnDelete)))
+                .addComponent(LabelNotifName)
+                .addGap(14, 14, 14)
+                .addGroup(pnlRegionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnDelete))
                 .addGap(26, 26, 26))
         );
 
@@ -203,7 +207,7 @@ public class RegionsView extends javax.swing.JInternalFrame {
                         .addGap(15, 15, 15)
                         .addComponent(btnSearch))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                    .addComponent(pnlRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(pnlRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 382, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -314,7 +318,8 @@ public class RegionsView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtIdKeyTyped
 
     private void txtIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyPressed
-        // TODO add your handling code here:
+        new Settings().cekNumber(evt, lbl3);
+        
     }//GEN-LAST:event_txtIdKeyPressed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -327,6 +332,10 @@ public class RegionsView extends javax.swing.JInternalFrame {
         txtId.setText("");
         txtName.setText("");
     }//GEN-LAST:event_txtIdMouseClicked
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+        new Settings().cekAlphabet(evt, LabelNotifName);
+    }//GEN-LAST:event_txtNameKeyPressed
     
     public void filterId(KeyEvent a) {
         if ((Character.isAlphabetic(a.getKeyChar()))) {
@@ -346,6 +355,8 @@ public class RegionsView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelNotifID;
+    private javax.swing.JLabel LabelNotifName;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
@@ -354,8 +365,6 @@ public class RegionsView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl3;
     private javax.swing.JLabel lbl4;
-    private javax.swing.JLabel lblId;
-    private javax.swing.JLabel lblName;
     private javax.swing.JPanel pnlRegion;
     private javax.swing.JTable tblRegion;
     private javax.swing.JTextField txtId;

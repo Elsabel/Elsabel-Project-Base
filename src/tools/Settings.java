@@ -5,15 +5,34 @@
  */
 package tools;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Elsa
  */
 public class Settings {
    
-    public void cekNumber(java.awt.event.ActionEvent evt){
-        if ((Character.isAlphabetic(evt).getKeyChar()) {
-            
+    public void cekNumber(KeyEvent evt,JLabel LabelNotif){
+        if ((Character.isAlphabetic(evt.getKeyChar())) ){
+            evt.consume();
+            LabelNotif.setText("Masukkan angka");
+        }
+        else{
+            LabelNotif.setText("");
+
+        }
+    }
+    public void cekAlphabet(KeyEvent evt,JLabel LabelNotif){
+        if ((Character.isAlphabetic(evt.getKeyChar())) ){
+            evt.consume();
+            LabelNotif.setText("");
+        }
+        else{
+            LabelNotif.setText("Masukkan huruf");
+
         }
     }
 }

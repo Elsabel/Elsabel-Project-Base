@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import models.Employee;
+import tools.Settings;
 
 /**
  *
@@ -82,6 +83,7 @@ public class EmployeesView extends javax.swing.JInternalFrame {
         cmbJob = new javax.swing.JComboBox<>();
         txtHire = new com.toedter.calendar.JDateChooser();
         LabelNotif = new javax.swing.JLabel();
+        LabelPhone = new javax.swing.JLabel();
 
         setBackground(getBackground());
         setClosable(true);
@@ -254,10 +256,12 @@ public class EmployeesView extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtSalary, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cmbManager, javax.swing.GroupLayout.Alignment.TRAILING, 0, 246, Short.MAX_VALUE)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LabelPhone)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtSalary, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cmbManager, javax.swing.GroupLayout.Alignment.TRAILING, 0, 246, Short.MAX_VALUE)
+                                        .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -297,7 +301,9 @@ public class EmployeesView extends javax.swing.JInternalFrame {
                         .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
                     .addComponent(txtHire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(LabelPhone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
@@ -546,7 +552,7 @@ public class EmployeesView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
-        new 
+        new Settings().cekNumber(evt, LabelPhone);
     }//GEN-LAST:event_txtPhoneKeyTyped
     void cmbManager() {
         for (models.Employee e : employeeController.getAll()) {
@@ -616,6 +622,7 @@ public class EmployeesView extends javax.swing.JInternalFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelNotif;
+    private javax.swing.JLabel LabelPhone;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;

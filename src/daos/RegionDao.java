@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package daos;
 
 import java.sql.Connection;
@@ -78,7 +74,6 @@ public class RegionDao {
      */
     //public boolean createRegion(int id, String name) {
     public boolean createRegion(Region region) {
-
         String query = "insert into regions (region_name, region_id) values (?,?)";
         return execute(query, region);
 
@@ -93,7 +88,6 @@ public class RegionDao {
      */
     //public boolean updateRegion(int id, String name) {
     public boolean updateRegion(Region region) {
-
         String query = "update regions set region_name=? where region_id=?";
         return execute(query, region);
     }
@@ -109,7 +103,6 @@ public class RegionDao {
      * @return result
      */
     public boolean deleteRegion(Region region) {
-
         String query = "delete from regions where region_id=?";
         return execute(query,region);
     }

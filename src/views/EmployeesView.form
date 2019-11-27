@@ -189,10 +189,13 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtSalary" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="cmbManager" alignment="1" pref="246" max="32767" attributes="0"/>
-                                      <Component id="txtPhone" alignment="1" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="LabelPhone" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtSalary" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="cmbManager" alignment="1" pref="246" max="32767" attributes="0"/>
+                                          <Component id="txtPhone" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -250,7 +253,9 @@
                       </Group>
                       <Component id="txtHire" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="LabelPhone" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -431,6 +436,8 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="LabelPhone">
         </Component>
       </SubComponents>
     </Container>
